@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KalkulatorWalut2.OProgramie"
+             Title="O Programie">
+    <Grid Margin="20,10,10,10">
+        <VerticalStackLayout>
+            
+        
+        <Label 
+            Text="Autor : Kacper Cichorski 104546"
+            VerticalOptions="Start" 
+            HorizontalOptions="Start" 
+            FontSize="Medium"/>
+        <Label 
+           Text="Data: 13.04.2026r."
+           VerticalOptions="Start" 
+           HorizontalOptions="Start"
+           FontSize="Medium"/>
+        <Label 
+           Text="Uczelnia: Uniwersytet Kazimierza Wielkiego w Bydgoszczy"
+           VerticalOptions="Start" 
+           HorizontalOptions="Start"
+           FontSize="Medium"/>
+        <Label 
+           Text="Przedmiot: Technologie wieloplatformowe w Windows"
+           VerticalOptions="Start" 
+           HorizontalOptions="Start"
+           FontSize="Medium"/>
+        </VerticalStackLayout>
+    </Grid>
+        
+</ContentPage>

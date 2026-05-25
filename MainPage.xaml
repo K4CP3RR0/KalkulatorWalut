@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KalkulatorWalut2.MainPage">
+    <Page.Resources>
+        <DataTemplate x:Key="SzablonWaluty">
+            <Grid>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroupList>
+                        <VisualStateGroup>
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value= "Transparent"/>
+                                </VisualState.Setters>
+                            </VisualState>
+                            
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor"
+                                            Value="{AppThemeBinding Dark='#f5f5dc' ,Light='1a1a1b' }"/>
+                                </VisualState.Setters>
+                            </VisualState>
+                            
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </VisualStateManager.VisualStateGroups>
+                <HorizontalStackLayout Padding="10">
+                    <Label Text="{Binding KodWaluty}"/>
+                    <Label Text="➡️"/>
+                    <Label Text="{Binding KursSredni}"/>
+                </HorizontalStackLayout>
+            </Grid>
+            
+        </DataTemplate>
+    </Page.Resources>
+    <Grid Loaded="Grid_Loaded">
+        <StackLayout>
+            <Label Text="Kalkulator Walut"
+                   FontSize="Title"
+                   FontFamily="Baskerville Old Face"
+                   Margin="10,10,10,20"
+                   TextColor="DeepSkyBlue"/>
+
+            <HorizontalStackLayout Margin="10,10,10,10">
+                <Label Text="Kwota:"
+                       FontSize="20"
+                       VerticalOptions="Center"/>
+                <Entry Placeholder="Podaj kwotę: "
+                       WidthRequest="125"
+                       x:Name="entryKwota"
+                       Margin="15,0,0,0"
+                       Keyboard="Numeric"
+                       TextChanged="entryKwota_TextChanged"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Margin="10">
+                <Label Text="Kwota przeliczona: "
+                        FontSize="20"/>
+                <Label Text="0"
+                       x:Name="lblKwota"
+                       FontSize="20"
+                       Margin="15,0,0,0"/>
+               
+            </HorizontalStackLayout>
+
+
+            <Grid>
+                <HorizontalStackLayout>
+                    <Label
+    Text=""
+    x:Name="lblDataAktualizacji"
+    Margin="10,10,10,10"
+    />
+                    <CollectionView SelectionMode="Single" HeightRequest="300" Margin="5"
+x:Name="CVWalutaWejscie" ItemTemplate="{StaticResource SzablonWaluty}" SelectionChanged="CVWalutaWejscie_SelectionChanged"/>
+                    <CollectionView SelectionMode="Single" HeightRequest="300" Margin="5"
+x:Name="CVWalutaWyjscie" ItemTemplate="{StaticResource SzablonWaluty}" SelectionChanged="CVWalutaWejscie_SelectionChanged"/>
+
+                </HorizontalStackLayout>
+    
+               </Grid>
+            <StackLayout HorizontalOptions="Start" Margin="15,5,0,0">
+                <Button Text="O Programie"
+                        WidthRequest="150"
+                        Margin="10,0,10,10"
+                        Clicked="ButtonOProgramie_Clicked"/>
+                <Button Text="Pomoc"
+                        Margin="10,0,10,10"
+                        WidthRequest="150"
+                        Clicked="ButtonPomoc_Clicked"/>
+            </StackLayout>
+                
+            
+            
+        </StackLayout>
+    </Grid>
+
+</ContentPage>
